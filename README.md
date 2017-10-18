@@ -1,60 +1,58 @@
 # yii2-ticket
-Тикет система для yii2
+The ticket system for yii2
 
-Documentation in [English](https://github.com/ricco381/yii2-ticket/blob/master/README_EN.md)
-
-##### Вышла стабильная версия 1.0.8
+##### The stable version 1.0.8 has been released
 ```
 1.0.8
-    Мелкие изменения
+     Minor changes
 ```
 
-##### Вышла стабильная версия 1.0.7
+##### Released stable version 1.0.7
 ```
 1.0.7
-    Изменен дизайн
+    Changed design
 
 1.0.6
-    Добавлено прикрепление изображений.
-    Добавлен создание тикета из админки.
-    Добавление прификсов таблицы.
-    Исправлен роутинг.
+    Added attachment images.
+    Added ticket creation from the admin panel.
+    Add prefixo table.
+    Fixed routing.
 
 1.0.5
-    Убраны уведомления о закрытых тикетах.
-    Убран лишний код.
-    Отправка почты перенесена в модель.
+    Removed notifications about closed tickets.
+    Removed unnecessary code.
+    Sending mail is transferred to the model.
 
-1.0.4 
-    Добавлена загрузка картинок.
-
-```
+1.0.4
+    Added download of images.
 
 ```
-Установка composer require "ricco/yii2-ticket:1.0.8"
+
+```
+Install composer require "ricco/yii2-ticket:1.0.8"
 ```
 
-# Добавление в проект
+# Add to project
 ```
 'ticket' => [
             'class'         => ricco\ticket\Module::className(),
         ],
 ```
-**Обязательно добавить в AppAssets в секцию js ссылку на bootstrap.js**
+**Be sure to add in AppAssets section in js the link on bootstrap.js**
 ```
  public $js = [
-        /** Другие скрипты */
+        /** Other scripts */
         '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js',
     ];
 ```
 
-# Маршруты без ЧПУ
+# GET routes
 ```
 index.php?r=ticket/ticket/index
 index.php?r=ticket/admin/index
 ```
 
-# Переопределение класса
+# Override class
 ```
 'ticket' => [
             'class'         => ricco\ticket\Module::className(),
@@ -65,7 +63,7 @@ index.php?r=ticket/admin/index
             ],
         ],
 ```
-# Переопределение вида
+# Override views
 ```
 'view'         => [
             'theme' => [
@@ -76,55 +74,55 @@ index.php?r=ticket/admin/index
         ],
 ```
 
-# Статусы тикетов
-> TicketHead::OPEN = 0 - открыт
+# The status of the ticket
+> TicketHead::OPEN = 0 - Open
 
-> TicketHead::WAIT = 1 - Ожидание
+> TicketHead::WAIT = 1 - Waiting
 
-> TicketHead::ANSWER = 2 - Отвечен
+> TicketHead::ANSWER = 2 - Answered
 
-> TicketHead::CLOSED = 3 - Закрыт
+> TicketHead::CLOSED = 3 - Closed
 
-# Доступные методы
+# Available methods
 
 > TicketHead::getNewTicketCount()
 
-Возвращает количество всех тикетов у которых статус "0" или "1" 
+Returns a count of all tickets with the status "0" или "1"
 
 > TicketHead::getNewTicketCountUser($status)
 
-Возвращает количество текетов для текущего пользователя, по умолчанию со всеми статусами которые равняются "0"
+Returns the number teketo for the current user, by default all statuses are equal to "0"
 
-# Миграция
+# Migration
 ```
 yii migrate --migrationPath=@vendor/ricco/yii2-ticket/migrations
 ```
 
-# Настройка модуля
+# Configuration of the module
 ```
-$mailSendAnswer = true на email будут отправлятся уведомления об ответе
+$mailSendAnswer = true, email will be sent notifications about the answer
 
-$subjectAnswer = string Тема email сообщения answer
+$subjectAnswer = string Subject line of email response
 
-$userModel = Object User model
+$userModel = model Object user
 
-$qq = array Массив отделов для которых создается вопрос
+$qq = array of Array of departments to which the issue
 
-$admin = array Массив администраторов
+$admin = array of Array administrators
 ```
 
-# Публичная часть
+# Public part
 ![](http://i.imgur.com/AAptr3g.png)
 
-# Создание тикета
+# Creating a ticket
 ![](http://i.imgur.com/D07htEF.png)
 
-#Вопрос-Ответ
+# Question-Answer
 ![](http://i.imgur.com/BkFcjJ2.png)
 
-#Админка
+# Admin
 ![](http://i.imgur.com/r6veOiH.png)
-#Ответ
+# Admin-Answer
 ![](http://i.imgur.com/HMrZFZu.png)
-#Создание тикета
+# Admin Creating a ticket
 ![](http://i.imgur.com/KtT3oeP.png)
